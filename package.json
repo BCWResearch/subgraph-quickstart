@@ -1,0 +1,26 @@
+{
+  "name": "subgraph-quickstart",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "compile": "npm run generate && npm run codegen && npm run build",
+    "generate": "envsub --env-file .env subgraph.template.yaml subgraph.yaml",
+    "codegen": "graph codegen",
+    "build": "graph build",
+    "create": "source .env && graph create --node ${ARKHIA_SUBGRAPH_URL}/${ARKHIA_API_KEY} ${SUBGRAPH_NAME}",
+    "deploy": "source .env && graph deploy --node ${ARKHIA_SUBGRAPH_URL}/${ARKHIA_API_KEY} --ipfs ${ARKHIA_IPFS_URL}/${ARKHIA_API_KEY} ${SUBGRAPH_NAME}",
+    "test": "graph test"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@graphprotocol/graph-cli": "^0.59.0",
+    "@graphprotocol/graph-ts": "0.27.0",
+    "@protofire/subgraph-toolkit": "^0.1.2",
+    "envsub": "^4.1.0"
+  },
+  "devDependencies": {
+    "matchstick-as": "0.5.0"
+  }
+}
